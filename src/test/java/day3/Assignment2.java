@@ -17,7 +17,7 @@ public class Assignment2
 
         Thread.sleep(3000);
 
-       WebElement element =  driver.findElement(By.xpath("//input[@type='search']"));
+       WebElement element =  driver.findElement(By.xpath("(//input[@type='search'])[2]"));
        element.click();
       element.sendKeys("Club Mahindra");
 
