@@ -3,6 +3,7 @@ package locators;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -26,8 +27,10 @@ public class BaseClass {
 
     @BeforeClass
     public void setup(){
+        ChromeOptions ops = new ChromeOptions();
+        ops.addArguments("--disable-notifications");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(ops);
     }
 
 
