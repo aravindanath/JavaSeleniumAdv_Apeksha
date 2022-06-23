@@ -9,6 +9,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseClass {
 
 
@@ -31,6 +33,7 @@ public class BaseClass {
         ops.addArguments("--disable-notifications");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(ops);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
 
