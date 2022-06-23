@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
@@ -78,9 +79,10 @@ public class Assignment2 {
 
 
         WebElement ele = driver.findElement(By.xpath("//span[@id='bubble_rating']"));
-        actions.moveToElement(ele).perform();
 
 
+
+//*******************************************************
         driver.findElement(By.xpath("//input[@name='ReviewTitle']")).sendKeys("AWESOME VIEW");
         driver.findElement(By.xpath("//textarea[@id='ReviewText']")).sendKeys("Extremely diverse knowledge and very well explained. Fantastic experience as they showed us different plants varying from bananas to fishtail palm and spices.Jaswanth and Priyam were very well informed and exhibited cordial bahaviour.");
         driver.findElement(By.xpath("//div[@data-category=\"Business\"]")).click();
@@ -114,6 +116,7 @@ public class Assignment2 {
 
 
     }
+
 
 
 }
