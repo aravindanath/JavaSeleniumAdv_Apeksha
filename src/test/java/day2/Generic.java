@@ -1,9 +1,18 @@
 package day2;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategy;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.*;
 import java.util.Properties;
 
 public class Generic {
@@ -38,5 +47,30 @@ public class Generic {
 
 
     }
+
+    public static void takeScreenShot(WebDriver driver){
+        try {
+            TakesScreenshot src = (TakesScreenshot) driver;
+            File srShot = src.getScreenshotAs(OutputType.FILE);
+            File dest = new File("./screenshot.png");
+            FileUtils.copyFile(srShot, dest);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void takeFullScreenShot(WebDriver driver) {
+
+        try {
+            Screenshot screen = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);
+            ImageIO.write(screen.getImage(), "PNG", new File("./screenshot_full.png"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
 
