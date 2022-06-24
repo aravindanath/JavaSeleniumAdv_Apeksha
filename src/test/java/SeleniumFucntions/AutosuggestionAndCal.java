@@ -1,5 +1,7 @@
 package SeleniumFucntions;
 
+import com.google.gson.Gson;
+import day2.Generic;
 import locators.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -65,6 +67,10 @@ public class AutosuggestionAndCal extends BaseClass {
 
       driver.findElement(By.id("search_btn")).click();
 
+
+      Thread.sleep(5000);
+
+        Generic.takeScreenShot(driver);
     }
 
 }
