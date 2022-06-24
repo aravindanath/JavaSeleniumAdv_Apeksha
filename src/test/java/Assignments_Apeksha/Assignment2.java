@@ -85,8 +85,7 @@ public class Assignment2 {
 
         JavascriptExecutor js = (JavascriptExecutor)  driver;
 
-        js.executeScript("document.getElementById('qid12_bubbles').setAttribute('class', 'answersBubbles ui_bubble_rating fl qid12 bubble_50')");
-
+       js.executeScript("document.getElementById('qid12_bubbles').setAttribute('class', 'answersBubbles ui_bubble_rating fl qid12 bubble_50')");
 
 
 //*******************************************************
