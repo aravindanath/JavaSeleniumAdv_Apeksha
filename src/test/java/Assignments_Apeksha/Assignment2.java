@@ -27,16 +27,18 @@ public class Assignment2 {
 
         WebElement element = driver.findElement(By.xpath("(//input[@type='search'])[2]"));
         element.click();
-        element.sendKeys("Club Mahindra");
+        element.sendKeys("Club Mahindra",Keys.ENTER);
+
+       // Actions actions1 = new Actions(driver);
+      //  Action ClickEnter = actions1.sendKeys(Keys.ENTER).build();
 
 
-        Actions actions = new Actions(driver);
-        Action clickEnter = actions.sendKeys(Keys.ENTER).build();
-        clickEnter.perform();
+
+        Thread.sleep(5000);
 
         WebDriverWait wait = new WebDriverWait(driver, 20);
 
-        Thread.sleep(3000);
+
         driver.findElement(By.xpath("(//div[@class='location-meta-block']/div/span)[1]")).click();
         Set<String> allWindows = driver.getWindowHandles();
         ArrayList<String> tabs = new ArrayList<>(allWindows);
@@ -51,6 +53,7 @@ public class Assignment2 {
         //  System.out.println("title 1"+title);
 
 
+        Actions actions = new Actions(driver);
         Action ClickEscape = actions.sendKeys(Keys.ESCAPE).build();
         ClickEscape.perform();
         Thread.sleep(3000);
@@ -79,6 +82,10 @@ public class Assignment2 {
 
 
         WebElement ele = driver.findElement(By.xpath("//span[@id='bubble_rating']"));
+
+        JavascriptExecutor js = (JavascriptExecutor)  driver;
+
+        js.executeScript("document.getElementById('qid12_bubbles').setAttribute('class', 'answersBubbles ui_bubble_rating fl qid12 bubble_50')");
 
 
 
